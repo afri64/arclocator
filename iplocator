@@ -1,0 +1,49 @@
+#!/bin/bash
+
+apt install nmap
+clear
+echo "ARC_locator[H]===\\"
+echo "===>[o]<======\\"
+echo "::::::::::::::::::::"
+read -p "[lacak] | [update]
+>> " home;
+case $home in
+
+lacak)
+
+  clear
+  echo "||lacak ip||"
+  echo "|[masukkan ip target]|"
+  read ip
+  nmap --script ip-geolocation-* $ip
+
+  echo " "
+  echo "silahkan copy paste kordinat yang didapat ke google maps/earth"
+
+;;
+
+update)
+
+  clear
+  
+  cd
+  rm -r arclocator
+  git clone https://github.com/afri64/arclocator/
+
+  alias del=rm
+  alias move=mv 
+  alias systeminfo=uname
+
+  {
+      for ((i = 10 ; i <= 150 ; i+=20)); do
+        sleep 1
+        echo $i
+      done
+  } | whiptail --gauge "installing update..." 6 60 1
+
+  cd
+  cd arclocator
+  bash iplocator
+
+esac
+esac
