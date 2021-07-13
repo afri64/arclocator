@@ -27,7 +27,7 @@ update)
   clear
   
   cd
-  rm -r arclocator
+  rm -r arclocator -y
   git clone https://github.com/afri64/arclocator/
 
   alias del=rm
@@ -35,7 +35,7 @@ update)
   alias systeminfo=uname
 
   {
-      for ((i = 10 ; i <= 150 ; i+=20)); do
+      for ((i = 10 ; i <= 100 ; i+=20)); do
         sleep 1
         echo $i
       done
